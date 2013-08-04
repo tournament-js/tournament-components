@@ -1,0 +1,31 @@
+<polymer-element name="x-player" attributes="item">
+  <template>
+    <li>{{item.name}} - {{item.score}}</li>
+  </template>
+  <script>
+    Polymer('x-player', {
+      ready: function() {}
+    });
+  </script>
+</polymer-element>
+
+<polymer-element name="x-match" attributes="json">
+  <style>
+    .match li { background-color: red;}
+  </style>
+  <template>
+    <ul class="match">
+      <template repeat="{{objs}}">
+        <x-player item="{{}}"></x-player>
+      </template>
+    </ul>
+  </template>
+  <script>
+    Polymer('x-match', {
+      objs: [], // start out empty
+      ready: function () {
+        this.objs = JSON.parse(this.json);
+      }
+    });
+  </script>
+</polymer-element>
