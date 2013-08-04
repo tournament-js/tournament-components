@@ -1,3 +1,4 @@
+<!-- used internally by x-match -->
 <polymer-element name="x-player" attributes="item">
   <template>
     <li>{{item.name}} - {{item.score}}</li>
@@ -9,7 +10,8 @@
   </script>
 </polymer-element>
 
-<polymer-element name="x-match" attributes="json">
+<!-- takes a list of objects of form {name: playeName, score: Number} -->
+<polymer-element name="x-match" attributes="objs">
   <style>
     .match li { background-color: red;}
   </style>
@@ -23,9 +25,7 @@
   <script>
     Polymer('x-match', {
       objs: [], // start out empty
-      ready: function () {
-        this.objs = JSON.parse(this.json);
-      }
+      ready: function () {}
     });
   </script>
 </polymer-element>
