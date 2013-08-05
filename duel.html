@@ -1,0 +1,66 @@
+<link rel="import" href="match.html">
+
+<polymer-element name="x-round" attributes="matches">
+  <style>
+    .round li { border: 1px solid #060;}
+  </style>
+  <template>
+    <ul class="round">
+      <li>
+        <template repeat="{{matches}}">
+          <x-match match="{{}}" id="m_{{id.s}}_{{id.r}}_{{id.m}}"></x-match>
+        </template>
+      </li>
+    </ul>
+  </template>
+  <script>
+    Polymer('x-round', {
+      matches: [],
+      matchesChanged: function () {
+        console.log('got a round:', this.matches);
+      }
+    });
+  </script>
+</polymer-element>
+
+
+<polymer-element name="x-duel" attributes="players matches">
+  <template>
+    <div>
+      <h1>Elimination brackets:</h1>
+      <!--TODO: conditional if double elim -->
+      <template repeat="{{rounds}}">
+        <x-round matches="{{}}"></x-round>
+      </template>
+    </div>
+  </template>
+  <script>
+    Polymer('x-duel', {
+      matches: [],
+      rounds: [],
+      ready: function () {
+        // slice up a tournament/duel match array into rounds
+        var rs = [];
+        for (var i = 0; i < this.matches.length; i += 1) {
+          var m = this.matches[i];
+          if (!m.m) {
+            m.m = []; // empty scores array
+          }
+          var ps = [];
+          for (var j = 0; j < m.p.length; j += 1) {
+            // zip m.p and m.m into an object (easier to loop over in templates)
+            ps.push({name: this.players[m.p[j]], score: m.m[j]});
+          }
+
+          if (!rs[m.id.r-1]) {
+            rs[m.id.r-1] = [];
+          }
+          // push match into rounds in a format required by x-match
+          rs[m.id.r-1].push({id: m.id, ps: ps, idStr: m.idStr});
+        }
+        this.rounds = rs;
+        console.log('all rounds:', this.rounds)
+      }
+    });
+  </script>
+</polymer-element>
