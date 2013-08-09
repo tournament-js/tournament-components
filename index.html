@@ -1,34 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="polymer.min.js" debug></script>
-    <link rel="import" href="match.html">
-    <link rel="import" href="duel.html">
+    <script src="./bower_components/polymer/polymer.min.js" debug></script>
+    <script src="./bundle.js"></script>
+    <link rel="import" href="./duel.html">
   </head>
   <body>
-    <p>A volatile test page of the components</p>
-    <x-match></x-match>
-
-    <p>Now a full duel</p>
-    <x-duel></x-duel>
   </body>
-  <script>
-    var mSimple = {id: 'WBR1', ps: [
-      {name: 'clux', score: 3},
-      {name: 'becks', score: 2}
-    ]};
-    var el = document.querySelector('x-match');
-    el.match = mSimple;
-
-
-    var players = {0: '', 1: 'thhethssmuz', 2: 'clux', 3: 'pibbz', 4: 'becks'};
-    var ms = [
-      {idStr: 'R1G1', id: {s: 1, r: 1, m: 1}, p: [1,4], m: [1, 0]},
-      {idStr: 'R1G2', id: {s: 1, r: 1, m: 2}, p: [2,3]},
-      {idStr: 'R2G1', id: {s: 1, r: 2, m: 1}, p: [1,0]}
-    ];
-    var duel = document.querySelector('x-duel');
-    duel.players = players;
-    duel.matches = ms;
-  </script>
+  <script src="./tests.js"></script>
 </html>

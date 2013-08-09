@@ -1,6 +1,6 @@
 <link rel="import" href="match.html">
 
-<polymer-element name="x-duel" attributes="players matches">
+<polymer-element name="duel-tournament" attributes="players matches">
   <template>
     <div>
       <h1>Elimination brackets:</h1>
@@ -19,7 +19,7 @@
     </div>
   </template>
   <script>
-    // TODO: create a mini-lib for the things needed here?
+    // TODO: encapsulate properly..
     var prepareMatches = function (matches, players) {
       // slice up a tournament/duel match array into rounds
       var rsWb = [];
@@ -51,12 +51,11 @@
       ];
     };
 
-    Polymer('x-duel', {
+    Polymer('duel-tournament', {
       matches: [],
       brackets: [],
       ready: function () {
         this.brackets = prepareMatches(this.matches, this.players);
-        console.log('all rounds:', this.rounds);
       }
     });
   </script>
