@@ -1,0 +1,27 @@
+{
+  "name": "tournament-components",
+  "description": "A simple match polymer-component",
+  "private": true,
+  "author": "Eirik Albrigtsen <analsandblaster@gmail.com>",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/clux/tournament-components.git"
+  },
+  "keywords": [
+    "polymer",
+    "component"
+  ],
+  "scripts": {
+    "build": "browserify -r tournament -r tape --debug > bundle.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tournament": "~0.11.1",
+    "tape": "~1.0.4"
+  },
+  "bugs": {
+    "url": "http://github.com/clux/tournament-components/issues"
+  },
+  "license": "MIT"
+}

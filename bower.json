@@ -1,0 +1,14 @@
+{
+  "name": "tournament-components",
+  "version": "0.0.0",
+  "main": "match.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "bundle.js"
+  ],
+  "dependencies": {
+    "polymer": "~0.0.20130808"
+  }
+}
