@@ -4,9 +4,10 @@ UI components for the [tournament module](https://github.com/clux/tournament) re
 In development. Feel free to help out.
 
 ## Installation
-This package is only registered on `bower` at the moment (under the same name).
 
-That said, `package.json` is there to leverage the power of npm's dependency resolution and scripts engine.
+```bash
+$ bower install tournament-components
+```
 
 ## Usage
 The `match.html` file contains the base match component which is included by all the other components.
@@ -46,8 +47,9 @@ Install development dependencies and prepare scripts:
 ```bash
 $ npm install
 $ npm run-script build
-$ bower install
 ```
+
+**NB:** Build script requires globally installed `browserify`.
 
 Then (python) SimpleHttpServer or (npm) `serve` up the folder, then navigate to localhost:8000 and verify that everything looks correct and check the console for tape output to see if the tests pass.
 
