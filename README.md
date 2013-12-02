@@ -1,4 +1,6 @@
 # Tournament-components
+[![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://nodejs.org/api/documentation.html#documentation_stability_index)
+
 UI components for the [tournament module](https://github.com/clux/tournament) relying on the [polymer library](http://www.polymer-project.org/).
 
 In development. Feel free to help out.
